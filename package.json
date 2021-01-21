@@ -4,6 +4,7 @@
   "version": "0.1.2",
   "author": "Colby Fayock <hello@colbyfayock.com>",
   "dependencies": {
+    "dayjs": "^1.10.3",
     "form-urlencoded": "^4.2.1",
     "gatsby": "^2.30.2",
     "gatsby-plugin-react-helmet": "^3.8.0",

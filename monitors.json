@@ -1,39 +1,37 @@
 {
-    "api_key": "ur1163751-6c03f52a2be619aba1f276b9",
-    "monitors":
-    [
+  "api_key": "ur1163751-6c03f52a2be619aba1f276b9",
+  "monitors": [
+    {
+      "type": "standalone",
+      "id": "786983911",
+      "title": "Website 🌏",
+      "subtitle": "Main website"
+    },
+    {
+      "type": "standalone",
+      "id": "786983935",
+      "title": "Dashboard 🖥",
+      "subtitle": ""
+    },
+    {
+      "type": "group",
+      "title": "Some bad APIs 🔌",
+      "monitors": [
         {
-            "type": "standalone",
-            "id": "786983911",
-            "title": "Website",
-            "subtitle" : "Main website"
+          "id": "786983939",
+          "title": "Payment"
         },
         {
-            "type": "standalone",
-            "id": "786983935",
-            "title": "Dashboard",
-            "subtitle" : ""
-        },
-        {
-            "type": "group",
-            "title": "APIs",
-            "monitors":
-            [
-                {
-                    "id": "786983939",
-                    "title": "Payment"
-                },
-                {
-                    "id": "786983939",
-                    "title": "Webhook"
-                }
-            ]
-        },
-        {
-            "type": "standalone",
-            "id": "786983983",
-            "title": "Sample bad route",
-            "subtitle" : "Service down example"
+          "id": "786983939",
+          "title": "Webhook"
         }
-    ]
+      ]
+    },
+    {
+      "type": "standalone",
+      "id": "786983983",
+      "title": "Sample bad route ⚠",
+      "subtitle": "Service down example"
+    }
+  ]
 }

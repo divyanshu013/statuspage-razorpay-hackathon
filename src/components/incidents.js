@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import containerStyles from "../styles/components/incidents.module.scss";
+import dayjs from "dayjs";
 
 const query = `
 {
@@ -33,11 +34,22 @@ const Incidents = () => {
   return (
     <div className={containerStyles.incidents_container}>
       <div className={containerStyles.incidents_content}>
-        <h1>Past incidents</h1>
+        <h1>Past incidents (last 7 days)</h1>
         {data &&
           data.map((incident) => (
             <div key={incident.id}>
-              <h2>{incident.title}</h2>
+              <h2>{incident.title} ❗</h2>
+              <div className={containerStyles.incidents_time_container}>
+                <p>
+                  🗓 {dayjs(incident.startDatetime).format("HH:mm DD/MM/YYYY")}
+                </p>
+                <p style={{ padding: "0 16px" }}> - </p>
+                <p>
+                  {incident.endDatetime
+                    ? dayjs(incident.endDatetime).format("HH:mm DD/MM/YYYY")
+                    : "Ongoing"}
+                </p>
+              </div>
               <div
                 dangerouslySetInnerHTML={{ __html: incident.description.html }}
               />
