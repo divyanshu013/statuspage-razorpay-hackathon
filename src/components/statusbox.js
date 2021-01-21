@@ -1,14 +1,14 @@
-'use strict';
-import React from 'react';
-import containerStyles from '../styles/components/statusbox.module.scss';
-import formurlencoded from 'form-urlencoded';
-import monitors from '../../monitors.json';
-import ReactTooltip from 'react-tooltip';
-import Loader from 'react-loaders';
-import '../styles/components/loader.scss';
-import ErrorImg from '../images/icons/icons8-high-priority-50.png';
-import OkImg from '../images/icons/icons8-checked-50.png';
-import PropTypes from 'prop-types';
+"use strict";
+import React from "react";
+import containerStyles from "../styles/components/statusbox.module.scss";
+import formurlencoded from "form-urlencoded";
+import monitors from "../../monitors.json";
+import ReactTooltip from "react-tooltip";
+import Loader from "react-loaders";
+import "../styles/components/loader.scss";
+import ErrorImg from "../images/icons/icons8-high-priority-50.png";
+import OkImg from "../images/icons/icons8-checked-50.png";
+import PropTypes from "prop-types";
 
 export default class StatusBox extends React.Component {
   constructor(props) {
@@ -28,11 +28,10 @@ export default class StatusBox extends React.Component {
 
   createStatus(data = {}) {
     const render = [];
-    const uptimes = data.custom_uptime_ranges.split('-');
-    var differenceInTime =
-      new Date() - new Date(data.create_datetime * 1000);
+    const uptimes = data.custom_uptime_ranges.split("-");
+    var differenceInTime = new Date() - new Date(data.create_datetime * 1000);
     var differenceInDays = differenceInTime / (1000 * 3600 * 24);
-    var daysFromStart = Math.ceil(differenceInDays) + 1;
+    var daysFromStart = Math.ceil(differenceInDays);
     var now = new Date();
     for (var i = 0; i < uptimes.length; i++) {
       if (daysFromStart <= i) {
@@ -40,11 +39,11 @@ export default class StatusBox extends React.Component {
       } else {
         var uptime =
           now.getDate() +
-          ' ' +
-          now.toLocaleString('default', { month: 'long' }) +
-          '\nUptime: ' +
+          " " +
+          now.toLocaleString("default", { month: "long" }) +
+          "\nUptime: " +
           Math.floor(uptimes[i] * 100) / 100 +
-          '%';
+          "%";
         render.unshift(
           <div
             data-for={data.id}
@@ -52,13 +51,13 @@ export default class StatusBox extends React.Component {
             className={containerStyles.bar}
             style={{
               background:
-                'linear-gradient(0deg, rgb(46,204,64)' +
+                "linear-gradient(0deg, rgb(46,204,64)" +
                 uptimes[i] +
-                '%, rgb(255,65,54) ' +
+                "%, rgb(255,65,54) " +
                 uptimes[i] +
-                '%)',
+                "%)",
             }}
-          ></div>,
+          ></div>
         );
         now.setDate(now.getDate() - 1);
       }
@@ -67,18 +66,18 @@ export default class StatusBox extends React.Component {
     return render;
   }
 
-  async postData(url = '', data = {}) {
+  async postData(url = "", data = {}) {
     // Default options are marked with *
     const response = await fetch(url, {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors', // no-cors, *cors, same-origin
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'same-origin', // include, *same-origin, omit
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "same-origin", // include, *same-origin, omit
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        "Content-Type": "application/x-www-form-urlencoded",
       },
-      redirect: 'follow', // manual, *follow, error
-      referrerPolicy: 'no-referrer', // no-referrer, *client
+      redirect: "follow", // manual, *follow, error
+      referrerPolicy: "no-referrer", // no-referrer, *client
       body: formurlencoded(data), // body data type must match "Content-Type" header
     });
     return await response.json(); // parses JSON response into native JavaScript objects
@@ -91,24 +90,22 @@ export default class StatusBox extends React.Component {
       custom_uptime_ranges: timeset,
     };
     const response = await this.postData(
-      'https://api.uptimerobot.com/v2/getMonitors',
-      data,
+      "https://api.uptimerobot.com/v2/getMonitors",
+      data
     );
     return response.monitors[0];
   }
 
   componentDidMount() {
-    this.getStatusData(this.props.id, this.props.timeset).then(
-      (data) => {
-        console.log({ data})
-        this.setState({
-          boxes: this.createStatus(data),
-          loading: false,
-          status: this.getStatus(data),
-        });
-        ReactTooltip.rebuild();
-      },
-    );
+    this.getStatusData(this.props.id, this.props.timeset).then((data) => {
+      console.log({ data });
+      this.setState({
+        boxes: this.createStatus(data),
+        loading: false,
+        status: this.getStatus(data),
+      });
+      ReactTooltip.rebuild();
+    });
   }
 
   getStatus(data) {
@@ -152,7 +149,7 @@ export default class StatusBox extends React.Component {
           <ReactTooltip
             id={this.props.id}
             className={containerStyles.status_tooltip}
-            place={'top'}
+            place={"top"}
             effect="solid"
             delayHide={300}
             arrowColor="transparent"
@@ -160,18 +157,16 @@ export default class StatusBox extends React.Component {
           />
         </div>
         <span
-          className={[
-            containerStyles.status_tip,
-            containerStyles.left,
-          ].join(' ')}
+          className={[containerStyles.status_tip, containerStyles.left].join(
+            " "
+          )}
         >
           Last 31 days
         </span>
         <span
-          className={[
-            containerStyles.status_tip,
-            containerStyles.right,
-          ].join(' ')}
+          className={[containerStyles.status_tip, containerStyles.right].join(
+            " "
+          )}
         >
           Today
         </span>
