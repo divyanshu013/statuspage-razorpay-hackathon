@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import "../styles/pages/index.scss";
-import Container from "../components/container";
+import Container from "../components/container-2";
 import TitleBox from "../components/titlebox";
-import Footer from "../components/footer";
+import Footer from "../components/footer-2";
 import Incidents from "../components/incidents";
 import StatusBoxContainer from "../components/statusboxContainer";
 import { Location } from "@reach/router";
