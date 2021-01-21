@@ -207,7 +207,7 @@ export default class StatusCategoryBox extends React.Component {
             containerStyles.left,
           ].join(' ')}
         >
-          31 dni temu
+          Last 31 days
         </span>
         <span
           className={[
@@ -215,14 +215,14 @@ export default class StatusCategoryBox extends React.Component {
             containerStyles.right,
           ].join(' ')}
         >
-          teraz
+          Today
         </span>
         <div
           className={containerStyles.status_more}
           onClick={this.clickOpenGroup}
         >
           <div className={containerStyles.status_more_text}>
-            Pokaż {this.state.opened ? 'mniej' : 'więcej'}
+            See {this.state.opened ? 'less' : 'more'}
           </div>
           <img
             src={downArrowImg}

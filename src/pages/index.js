@@ -1,47 +1,22 @@
-import React, { useEffect } from 'react';
-import '../styles/pages/index.scss';
-import Container from '../components/container';
-import TitleBox from '../components/titlebox';
-import Footer from '../components/footer';
-import StatusBoxContainer from '../components/statusboxContainer';
-import { Location } from '@reach/router';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-
-const query = `
-{
-  incidents(last: 15, orderBy: startDatetime_DESC) {
-    title
-    description {
-      html
-    }
-    startDatetime
-    endDatetime
-  }
-}
-`;
+import React, { useEffect } from "react";
+import "../styles/pages/index.scss";
+import Container from "../components/container";
+import TitleBox from "../components/titlebox";
+import Footer from "../components/footer";
+import Incidents from "../components/incidents";
+import StatusBoxContainer from "../components/statusboxContainer";
+import { Location } from "@reach/router";
+import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
 
 export default function Index({ data }) {
-  useEffect(() => {
-    fetch('https://api-ap-northeast-1.graphcms.com/v2/ckk6ly2x4mbjl01z1306oaqpg/master', {
-      method: 'POST',
-      body: JSON.stringify({ query })
-    }).then(res => res.json())
-    .then(json => console.log(json))
-  }, [])
   return (
     <Location>
       {({ location, navigate }) => (
         <Container>
           <Helmet>
-            <meta
-              name="description"
-              content="Razorpay status page"
-            />
-            <meta
-              name="keywords"
-              content="razorpay, status"
-            />
+            <meta name="description" content="Razorpay status page" />
+            <meta name="keywords" content="razorpay, status" />
             <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <meta
@@ -71,34 +46,22 @@ export default function Index({ data }) {
               href="/safari-pinned-tab.svg"
               color="#e9384f"
             />
-            <link rel="shortcut icon" href="https://razorpay.com/favicon.png?v=2" />
+            <link
+              rel="shortcut icon"
+              href="https://razorpay.com/favicon.png?v=2"
+            />
             <meta
               name="apple-mobile-web-app-title"
               content="Status WisniowaSU"
             />
-            <meta
-              name="application-name"
-              content="Status Wiśniowa SU"
-            />
+            <meta name="application-name" content="Status Wiśniowa SU" />
             <meta name="msapplication-TileColor" content="#e9384f" />
-            <meta
-              name="msapplication-config"
-              content="/browserconfig.xml"
-            />
+            <meta name="msapplication-config" content="/browserconfig.xml" />
             <meta name="theme-color" content="#ffffff" />
             <title>Razorpay Status</title>
-            <meta
-              property="og:site_name"
-              content="Status Wiśniowa SU"
-            />
-            <meta
-              property="og:title"
-              content="Razorpay Status"
-            />
-            <meta
-              property="og:description"
-              content="Razorpay status page"
-            />
+            <meta property="og:site_name" content="Status Wiśniowa SU" />
+            <meta property="og:title" content="Razorpay Status" />
+            <meta property="og:description" content="Razorpay status page" />
             <meta property="og:type" content="website" />
             <meta
               property="og:image"
@@ -109,13 +72,14 @@ export default function Index({ data }) {
           <TitleBox />
 
           <StatusBoxContainer />
+          <Incidents />
           <Footer />
         </Container>
       )}
     </Location>
   );
 }
-Index.displayName = 'Index';
+Index.displayName = "Index";
 Index.propTypes = {
   data: PropTypes.object,
 };
