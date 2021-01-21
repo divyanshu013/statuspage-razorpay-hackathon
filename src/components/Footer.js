@@ -5,7 +5,6 @@ import containerStyles from '../styles/components/footer.module.scss';
 // import facebook from '../images/icons/icons8-facebook-100.png'
 // import youtube from '../images/icons/icons8-play-button-100.png'
 // import discord from '../images/icons/icons8-discord-100.png'
-import packageJson from '../../package.json';
 
 export default class Footer extends React.Component {
   render() {

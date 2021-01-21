@@ -17,11 +17,11 @@ export default function Index({ data }) {
           <Helmet>
             <meta
               name="description"
-              content="Strona zawierająca wszystkie aktualne i ubiegłe stany usług Wiśniowa SU"
+              content="Razorpay status page"
             />
             <meta
               name="keywords"
-              content="status, samorząd, samorząd uczniowski, szkoła, uczniowie, Wiśniowa 56"
+              content="razorpay, status"
             />
             <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
             <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -67,18 +67,18 @@ export default function Index({ data }) {
               content="/browserconfig.xml"
             />
             <meta name="theme-color" content="#ffffff" />
-            <title>Status usług Wiśniowa SU</title>
+            <title>Razorpay Status</title>
             <meta
               property="og:site_name"
               content="Status Wiśniowa SU"
             />
             <meta
               property="og:title"
-              content="Status usług Wiśniowa SU"
+              content="Razorpay Status"
             />
             <meta
               property="og:description"
-              content="Strona zawierająca wszystkie aktualne i ubiegłe stany usług Wiśniowa SU"
+              content="Razorpay status page"
             />
             <meta property="og:type" content="website" />
             <meta
