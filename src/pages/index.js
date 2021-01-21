@@ -50,10 +50,7 @@ export default function Index({ data }) {
               rel="shortcut icon"
               href="https://razorpay.com/favicon.png?v=2"
             />
-            <meta
-              name="apple-mobile-web-app-title"
-              content="Status WisniowaSU"
-            />
+            <meta name="apple-mobile-web-app-title" content="Razorpay Status" />
             <meta name="application-name" content="Status Wiśniowa SU" />
             <meta name="msapplication-TileColor" content="#e9384f" />
             <meta name="msapplication-config" content="/browserconfig.xml" />
