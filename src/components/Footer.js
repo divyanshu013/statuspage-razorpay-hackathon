@@ -11,39 +11,28 @@ export default class Footer extends React.Component {
   render() {
     return (
       <footer className={containerStyles.footer}>
-        <p className={containerStyles.poweredby}>powered by</p>
-        <a
-          href="https://wisniowasu.pl"
-          className={containerStyles.logo}
-        ></a>
         <div className={containerStyles.icons}>
           <a
-            className={containerStyles.facebook}
-            href="https://facebook.wisniowasu.pl"
+            className={containerStyles.twitter}
+            href="https://twitter.com/razorpay"
             target="_blank"
             rel="noopener noreferrer"
           ></a>
           <a
             className={containerStyles.instagram}
-            href="https://instagram.wisniowasu.pl"
+            href="https://www.instagram.com/razorpay/"
             target="_blank"
             rel="noopener noreferrer"
           ></a>
           <a
             className={containerStyles.youtube}
-            href="https://youtube.wisniowasu.pl"
-            target="_blank"
-            rel="noopener noreferrer"
-          ></a>
-          <a
-            className={containerStyles.discord}
-            href="https://discord.wisniowasu.pl"
+            href="https://www.youtube.com/channel/UCddN5MDa_yirLO8fKVMVnhw"
             target="_blank"
             rel="noopener noreferrer"
           ></a>
         </div>
         <p>
-          Made by{' '}
+          Template by{' '}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -55,13 +44,13 @@ export default class Footer extends React.Component {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/fastfend/status-wisniowasu"
+            href="https://github.com/divyanshu013/statuspage-razorpay-hackathon"
           >
             GitHub
           </a>
         </p>
         <p>
-          Ikony wykorzystane z{' '}
+          Icons by{' '}
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -70,7 +59,13 @@ export default class Footer extends React.Component {
             Icons8
           </a>
         </p>
-        <p>wersja {packageJson.version}</p>
+        <p>Made for Razorpay hackathon by <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/divyanshu013"
+          >
+            divyanshu013
+          </a></p>
       </footer>
     );
   }
