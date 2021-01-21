@@ -100,6 +100,7 @@ export default class StatusBox extends React.Component {
   componentDidMount() {
     this.getStatusData(this.props.id, this.props.timeset).then(
       (data) => {
+        console.log({ data})
         this.setState({
           boxes: this.createStatus(data),
           loading: false,
@@ -164,7 +165,7 @@ export default class StatusBox extends React.Component {
             containerStyles.left,
           ].join(' ')}
         >
-          31 dni temu
+          Last 31 days
         </span>
         <span
           className={[
@@ -172,7 +173,7 @@ export default class StatusBox extends React.Component {
             containerStyles.right,
           ].join(' ')}
         >
-          teraz
+          Today
         </span>
       </div>
     );

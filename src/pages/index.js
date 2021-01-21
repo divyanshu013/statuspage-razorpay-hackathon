@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/pages/index.scss';
 import Container from '../components/container';
 import TitleBox from '../components/titlebox';
 import Footer from '../components/footer';
 import StatusBoxContainer from '../components/statusboxContainer';
-import InfoBox from '../components/info';
 import { Location } from '@reach/router';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
+const query = `
+{
+  incidents(last: 15, orderBy: startDatetime_DESC) {
+    title
+    description {
+      html
+    }
+    startDatetime
+    endDatetime
+  }
+}
+`;
+
 export default function Index({ data }) {
+  useEffect(() => {
+    fetch('https://api-ap-northeast-1.graphcms.com/v2/ckk6ly2x4mbjl01z1306oaqpg/master', {
+      method: 'POST',
+      body: JSON.stringify({ query })
+    }).then(res => res.json())
+    .then(json => console.log(json))
+  }, [])
   return (
     <Location>
       {({ location, navigate }) => (
@@ -32,19 +51,19 @@ export default function Index({ data }) {
             <link
               rel="apple-touch-icon"
               sizes="180x180"
-              href="/apple-touch-icon.png"
+              href="https://razorpay.com/favicon.png?v=2"
             />
             <link
               rel="icon"
               type="image/png"
               sizes="32x32"
-              href="/favicon-32x32.png"
+              href="https://razorpay.com/favicon.png?v=2"
             />
             <link
               rel="icon"
               type="image/png"
               sizes="16x16"
-              href="/favicon-16x16.png"
+              href="https://razorpay.com/favicon.png?v=2"
             />
             <link rel="manifest" href="/site.webmanifest" />
             <link
@@ -52,7 +71,7 @@ export default function Index({ data }) {
               href="/safari-pinned-tab.svg"
               color="#e9384f"
             />
-            <link rel="shortcut icon" href="/favicon.ico" />
+            <link rel="shortcut icon" href="https://razorpay.com/favicon.png?v=2" />
             <meta
               name="apple-mobile-web-app-title"
               content="Status WisniowaSU"
@@ -83,14 +102,11 @@ export default function Index({ data }) {
             <meta property="og:type" content="website" />
             <meta
               property="og:image"
-              content="https://status.wisniowasu.pl/social_logo.jpg"
+              content="https://razorpay.com/assets/og.png"
             />
-            <link rel="icon" href="/favicon.ico" />
+            <link rel="icon" href="https://razorpay.com/favicon.png?v=2" />
           </Helmet>
           <TitleBox />
-          <div>
-            <InfoBox location={location} />
-          </div>
 
           <StatusBoxContainer />
           <Footer />

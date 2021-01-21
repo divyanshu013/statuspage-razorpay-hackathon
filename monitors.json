@@ -1,69 +1,39 @@
 {
-    "api_key": "ur879703-fdb80f8758ca4266e29aa6a4",
+    "api_key": "ur1163751-6c03f52a2be619aba1f276b9",
     "monitors":
     [
         {
             "type": "standalone",
-            "id": "784436272",
-            "title": "Strona główna SU",
-            "subtitle" : "WiśniowaSU"
+            "id": "786983911",
+            "title": "Website",
+            "subtitle" : "Main website"
         },
         {
             "type": "standalone",
-            "id": "784472960",
-            "title": "Strona główna P.ASJE",
-            "subtitle" : "Konferencja 2020"
+            "id": "786983935",
+            "title": "Dashboard",
+            "subtitle" : ""
         },
         {
             "type": "group",
-            "title": "Główne usługi WiśniowaSU",
+            "title": "APIs",
             "monitors":
             [
                 {
-                    "id": "784472956",
-                    "title": "System linkow"
+                    "id": "786983939",
+                    "title": "Payment"
                 },
                 {
-                    "id": "784472962",
-                    "title": "System feedback'u"
-                },
-                {
-                    "id": "786596062",
-                    "title": "Blog"
-                }
-            ]
-        },
-        {
-            "type": "group",
-            "title": "Usługi API Wiśnowa SU",
-            "monitors":
-            [
-                {
-                    "id": "784492451",
-                    "title": "WebhookCI"
-                }
-            ]
-        },
-        {
-            "type": "group",
-            "title": "VPS",
-            "monitors":
-            [
-                {
-                    "id": "784492457",
-                    "title": "Urządzenia dostawcy"
-                },
-                {
-                    "id": "784472966",
-                    "title": "Router brzegowy"
+                    "id": "786983939",
+                    "title": "Webhook"
                 }
             ]
         },
         {
             "type": "standalone",
-            "id": "784469773",
-            "title": "Serwerownia",
-            "subtitle" : "Router brzegowy"
+            "id": "786983983",
+            "title": "Sample bad route",
+            "subtitle" : "Service down example"
         }
     ]
 }
