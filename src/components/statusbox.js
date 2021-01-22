@@ -31,7 +31,7 @@ export default class StatusBox extends React.Component {
     const uptimes = data.custom_uptime_ranges.split("-");
     var differenceInTime = new Date() - new Date(data.create_datetime * 1000);
     var differenceInDays = differenceInTime / (1000 * 3600 * 24);
-    var daysFromStart = Math.ceil(differenceInDays);
+    var daysFromStart = Math.ceil(differenceInDays + 1);
     var now = new Date();
     for (var i = 0; i < uptimes.length; i++) {
       if (daysFromStart <= i) {
