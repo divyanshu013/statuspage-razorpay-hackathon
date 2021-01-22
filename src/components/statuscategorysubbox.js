@@ -1,15 +1,14 @@
-import React from 'react';
-import containerStyles from '../styles/components/statusbox.module.scss';
-import ReactTooltip from 'react-tooltip';
-import PropTypes from 'prop-types';
+import React from "react";
+import containerStyles from "../styles/components/statusbox.module.scss";
+import ReactTooltip from "react-tooltip";
+import PropTypes from "prop-types";
 export default class StatusCategorySubBox extends React.Component {
   createStatus(data) {
     const render = [];
-    const uptimes = data.custom_uptime_ranges.split('-');
-    var differenceInTime =
-      new Date() - new Date(data.create_datetime * 1000);
+    const uptimes = data.custom_uptime_ranges.split("-");
+    var differenceInTime = new Date() - new Date(data.create_datetime * 1000);
     var differenceInDays = differenceInTime / (1000 * 3600 * 24);
-    var daysFromStart = Math.ceil(differenceInDays) + 1;
+    var daysFromStart = Math.ceil(differenceInDays);
     var now = new Date();
     for (var i = 0; i < uptimes.length; i++) {
       if (daysFromStart <= i) {
@@ -17,11 +16,11 @@ export default class StatusCategorySubBox extends React.Component {
       } else {
         var uptime =
           now.getDate() +
-          ' ' +
-          now.toLocaleString('default', { month: 'long' }) +
-          '\nUptime: ' +
+          " " +
+          now.toLocaleString("default", { month: "long" }) +
+          "\nUptime: " +
           Math.floor(uptimes[i] * 100) / 100 +
-          '%';
+          "%";
         render.unshift(
           <div
             data-for={this.props.data.title}
@@ -29,13 +28,13 @@ export default class StatusCategorySubBox extends React.Component {
             className={containerStyles.bar}
             style={{
               background:
-                'linear-gradient(0deg, rgb(46,204,64)' +
+                "linear-gradient(0deg, rgb(46,204,64)" +
                 uptimes[i] +
-                '%, rgb(255,65,54) ' +
+                "%, rgb(255,65,54) " +
                 uptimes[i] +
-                '%)',
+                "%)",
             }}
-          ></div>,
+          ></div>
         );
         now.setDate(now.getDate() - 1);
       }
@@ -56,7 +55,7 @@ export default class StatusCategorySubBox extends React.Component {
         <ReactTooltip
           id={this.props.data.title}
           className={containerStyles.status_tooltip}
-          place={'top'}
+          place={"top"}
           effect="solid"
           delayHide={300}
           arrowColor="transparent"
