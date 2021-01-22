@@ -98,7 +98,6 @@ export default class StatusBox extends React.Component {
 
   componentDidMount() {
     this.getStatusData(this.props.id, this.props.timeset).then((data) => {
-      console.log({ data });
       this.setState({
         boxes: this.createStatus(data),
         loading: false,

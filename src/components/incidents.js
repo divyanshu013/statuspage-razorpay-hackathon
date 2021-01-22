@@ -30,7 +30,6 @@ const Incidents = () => {
       .then((res) => res.json())
       .then((json) => setData(json.data.incidents));
   }, []);
-  console.log({ data });
   return (
     <div className={containerStyles.incidents_container}>
       <div className={containerStyles.incidents_content}>
@@ -38,17 +37,17 @@ const Incidents = () => {
         {data &&
           data.map((incident) => (
             <div key={incident.id}>
-              <h2>{incident.title} ❗</h2>
+              <h2 style={{ color: "salmon" }}>{incident.title}</h2>
               <div className={containerStyles.incidents_time_container}>
-                <p>
-                  🗓 {dayjs(incident.startDatetime).format("HH:mm DD/MM/YYYY")}
-                </p>
-                <p style={{ padding: "0 16px" }}> - </p>
-                <p>
+                <div>
+                  {dayjs(incident.startDatetime).format("HH:mm DD/MM/YYYY")}
+                </div>
+                <div style={{ padding: "0 16px" }}> - </div>
+                <div>
                   {incident.endDatetime
                     ? dayjs(incident.endDatetime).format("HH:mm DD/MM/YYYY")
                     : "Ongoing"}
-                </p>
+                </div>
               </div>
               <div
                 dangerouslySetInnerHTML={{ __html: incident.description.html }}

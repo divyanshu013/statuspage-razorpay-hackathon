@@ -15,7 +15,7 @@
     },
     {
       "type": "group",
-      "title": "Some bad APIs 🔌",
+      "title": "APIs 🔌",
       "monitors": [
         {
           "id": "786983939",
